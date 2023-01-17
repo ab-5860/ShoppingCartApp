@@ -9,46 +9,40 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ShoppingCart</groupId>
-	<artifactId>OrderService</artifactId>
+	<artifactId>PayementService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>OrderService</name>
-	<description>Microservice Implementing Order Service</description>
+	<name>PayementService</name>
+	<description>Microservice Implementing 3rd Party Payment Service</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2021.0.5</spring-cloud.version>
 	</properties>
 	<dependencies>
-		 <dependency>
-      		<groupId>org.springframework.boot</groupId>
-      		<artifactId>spring-boot-starter-data-jpa</artifactId>
-    	</dependency>
-    	<dependency>
-      		<groupId>org.springframework.boot</groupId>
-      		<artifactId>spring-boot-starter-web</artifactId>
-    	</dependency>
-    	<dependency>
-      		<groupId>org.springframework.cloud</groupId>
-      		<artifactId>spring-cloud-starter</artifactId>
-    	</dependency>
-    	<dependency>
-      		<groupId>org.springframework.cloud</groupId>
-      		<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-    	</dependency>
-	<dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-config</artifactId>
-    </dependency>
-    	<dependency>
-      		<groupId>com.mysql</groupId>
-      		<artifactId>mysql-connector-j</artifactId>
-      		<scope>runtime</scope>
-    	</dependency>
-    	<dependency>
-      		<groupId>org.projectlombok</groupId>
-      		<artifactId>lombok</artifactId>
-      		<optional>true</optional>
-    	</dependency>
-<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-sleuth-zipkin -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework.cloud</groupId>
+    		<artifactId>spring-cloud-starter-bootstrap</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+	<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-sleuth-zipkin -->
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-sleuth-zipkin</artifactId>
@@ -62,11 +56,16 @@
     <artifactId>spring-cloud-starter-sleuth</artifactId>
     <version>3.1.5</version>
 </dependency>
-
-	<dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-openfeign</artifactId>
-    </dependency>
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -90,6 +89,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
